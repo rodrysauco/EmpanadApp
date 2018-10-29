@@ -1,0 +1,33 @@
+<div class="content" *ngIf="usuario">
+  <div class="header">
+    <section class="headerContent">
+      <div *ngIf="usuario.isAdmin" class="hiddenMenu">
+        <button mat-icon-button (click)="toggle()"><i class="material-icons md-24">menu</i></button>
+      </div>
+      <div class="title">
+        Bienvenido {{usuario.nombre}}
+      </div>
+      <div *ngIf="showMenus" class="hiddenSubMenu">
+        <button mat-button (click)="goToOrder()">Ver pedidos</button>
+        <button mat-button (click)="selectAdm()">Seleccionar admin</button>
+      </div>
+    </section>
+  </div>
+  <div class="headerContent">
+    Caja comunal $40
+  </div>
+  <div class="body">
+    <app-new-pedido (pedido)="makeThePedido($event)" [items]="items"></app-new-pedido>
+    <div class="history">
+      <app-pedidos-history [history]="usuario.pedidos" (edit)="edition($event)">
+      </app-pedidos-history>
+    </div>
+    <section *ngIf="editPedido !== undefined">
+      <app-pedido [items]="items" [pedido]="editPedido" (doIt)="updatePedido($event)" (close)="closeModal()"></app-pedido>
+    </section>
+    <div *ngIf="circle" class="spinner">
+      <mat-spinner></mat-spinner>
+      <section class="loading">Realizando pedido</section>
+    </div>
+  </div>
+</div>

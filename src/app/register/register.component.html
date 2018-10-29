@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="doRegister()">
+    <mat-card class="registerCard">
+      <mat-card-title>
+        <div>
+          Registrate
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Solo te tomara unos segundos
+      </mat-card-subtitle>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput formControlName="name" type="text" placeholder="Nombre">
+          <mat-error *ngIf="name.hasError('required')">Ingrese nombre</mat-error>
+          <mat-error *ngIf="name.hasError('pattern')">Nombre invalido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="mail" type="email" placeholder="Email">
+          <mat-error *ngIf="mail.hasError('email')">Email invalido</mat-error>
+          <mat-error *ngIf="mail.hasError('required')">Requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="password" type="password" placeholder="Contraseña">
+          <mat-error *ngIf="pass.hasError('required')">Contraseña requerida</mat-error>
+          <mat-error *ngIf="!pass.length > 3">Contraseña pequeña</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="goLogin">
+          <button (click)="goLogin()" color="primary" mat-raised-button>Login</button>
+        </div>
+        <div class="registerButton">
+          <button type="reset" mat-raised-button><i class="material-icons">delete</i></button>
+          <button type="submit" class="green" [disabled]= "!registerForm.valid" mat-raised-button>Registrar</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+<div *ngIf="showModal === true">
+  Esoooo
+</div>

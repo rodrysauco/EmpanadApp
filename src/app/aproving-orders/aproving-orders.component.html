@@ -1,0 +1,83 @@
+<div class="header" *ngIf="usuario">
+  <section class="headerContent">
+    <div *ngIf="usuario.isAdmin" class="hiddenMenu">
+      <button mat-icon-button (click)="toggle()"><i class="material-icons md-24 buttonHidden">menu</i></button>
+    </div>
+    <div class="title">
+      Bienvenido {{usuario.nombre}}
+    </div>
+    <div *ngIf="showMenus" class="hiddenSubMenu">
+      <button mat-button (click)="goHome()">Ir a Home</button>
+      <button mat-button (click)="changeAdmin()">Seleccionar admin</button>
+    </div>
+  </section>
+</div>
+<div *ngIf="users.length; else empty">
+  <section class="body">
+    <div class="contentRight">
+      <p class="titlePedidos">Totales</p>
+      <div class="empanadas" *ngFor="let e of orders">
+        <div *ngIf="e.length">
+          <div *ngIf="e[0].cat > 1; else canasta">
+            <p class="titlePedidos">Empanadas</p>
+          </div>
+          <ng-template #canasta>
+            <p class="titlePedidos">Canastas</p>
+          </ng-template>
+          <table mat-table [dataSource]="e" class="orderTable">
+            <!--Cantidad-->
+            <ng-container matColumnDef="Cantidad">
+              <th mat-header-cell *matHeaderCellDef class="alignCenter"> Cantidad </th>
+              <td mat-cell *matCellDef="let element" class="alignCenter"> {{element.cantidad}} </td>
+            </ng-container>
+            <!--Nombre-->
+            <ng-container matColumnDef="Gusto">
+              <th mat-header-cell *matHeaderCellDef class="paddingLT"> Sabor </th>
+              <td mat-cell *matCellDef="let element" class="paddingLT">
+                {{element.name}}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contentLeft">
+        <p class="titlePedidos">Pedidos de la semana</p>
+        <div class="total">
+          Total = $ {{total}}
+        </div>
+        <div class="pedidos" *ngFor="let p of users">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{p.nombre}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  Total $ {{p.pedidos[0].total}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="item" *ngFor='let i of p.pedidos[0].lineaDePedido'>
+                <div *ngIf="i.producto.categoria > 1; else canasta">{{i.cantidad}} Empanada de {{i.producto.name}}</div>
+                <ng-template #canasta>{{i.cantidad}} Canasta de {{i.producto.name}}</ng-template>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+      <div class="confirmar">
+        <p class="titleBody">Maria Alsina Tel: 486-4447</p>
+        <p class="subtitleBody">Ha realizado el pedido?</p>
+        <button mat-flat-button (click)="submitedOrder()"> Si </button>
+      </div>
+    </div>
+  </section>
+</div>
+<ng-template #empty>
+  <section class="emptyOrder">
+    <p class="titlePedidos">Todavia no hay pedidos solicitados</p>
+  </section>
+</ng-template>

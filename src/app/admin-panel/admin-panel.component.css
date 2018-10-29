@@ -1,0 +1,49 @@
+.headerContent{
+  background-color: aliceblue;
+  padding: 10px;
+  width: 80%;
+  margin: 40px 0 0 10%;
+  border-radius: 34px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+.title{
+  font-family: helvetica;
+  font-size: xx-large;
+}
+.hiddenMenu{
+  color: grey;
+  position: absolute;
+}
+.hiddenSubMenu{
+  margin-top: 5px;
+}
+.hiddenSubMenu button{
+  margin: 0 5px 0 5px;
+}
+.body{
+  width: 90%;
+  margin: 0 0 0 5%;
+  padding: 10px;
+  text-align: center;
+}
+.bodyTitle{
+  color: grey;
+}
+.userSelect{
+  padding: 10px;
+}
+.adminSelect{
+  margin: 0 5px 0 5px;
+}
+@media only screen and (max-width: 476px){
+  .body{
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .adminSelect{
+    margin: 0 30% 10px 30%;
+  }
+}

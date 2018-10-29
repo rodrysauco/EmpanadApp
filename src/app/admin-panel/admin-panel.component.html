@@ -1,0 +1,26 @@
+<div class="header" *ngIf="usuario">
+  <section class="headerContent">
+    <div *ngIf="usuario.isAdmin" class="hiddenMenu">
+      <button mat-icon-button (click)="toggle()"><i class="material-icons md-24">menu</i></button>
+    </div>
+    <div class="title">
+      Bienvenido {{usuario.nombre}}
+    </div>
+    <div *ngIf="showMenus" class="hiddenSubMenu">
+      <button mat-button (click)="goHome()">Ir a Home</button>
+      <button mat-button (click)="goToOrder()">Ver pedidos</button>
+    </div>
+  </section>
+</div>
+<section class="body">
+  <h3 class="bodyTitle">
+    Seleccione al proximo admin
+  </h3>
+  <div class="userSelect" >
+    <button 
+      mat-raised-button 
+      class="adminSelect"
+      *ngFor="let p of users" 
+      (click)="makeAdmin(p.token)">{{p.nombre}}</button>
+  </div>
+</section>

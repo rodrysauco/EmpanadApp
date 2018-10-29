@@ -1,0 +1,33 @@
+<div class="content">
+  <section class="header">
+    Ingrese su pedido
+  </section>
+  <section class="body">
+    <form [formGroup]="pedidoForm">
+      <div formArrayName="lineaDePedido">
+        <div *ngFor="let pedido of empaForm.controls; let i = index" [formGroupName]="i">
+          <mat-form-field class="productInfo">
+            <mat-select formControlName="producto" placeholder="Tipos">
+              <mat-optgroup *ngFor="let group of items" [label]="group.name">
+                <mat-option [value]="producto" (click)="doSomething(i)" *ngFor="let producto of group.producto">
+                  {{producto.name}}</mat-option>
+              </mat-optgroup>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="qttInput">
+            <input matInput type="number" placeholder="Cantidad" (change)="doSomething(i)" formControlName="cantidad" min="1" max="12" maxlength="2">
+          </mat-form-field>
+          <mat-form-field class="subtotalWrapper">
+            <input matInput type="number" [value]="getSubtotal(i)" [readonly]="true" class="subTotalInput" placeholder="Subtotal">
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+          <button mat-icon-button color="warn" matTooltip="Eliminar empanada" (click)="deleteLine(i)"><i class="material-icons">delete</i></button>
+        </div>
+      </div>
+      <button mat-mini-fab (click)="addLine()" class="addButton" matTooltip="Agregar empanada"><i class="material-icons">add</i>
+      </button>
+      <button mat-mini-fab class="sendButton" matTooltip="Enviar pedido" (click)="sendRequest()"><i class="material-icons">send</i>
+      </button>
+    </form>
+  </section>
+</div>

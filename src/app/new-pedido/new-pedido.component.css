@@ -1,0 +1,98 @@
+.content{
+  width: 505px;
+  margin: 20px 0 0 5%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 40px;
+  background-color: #d4e9f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+  font-size: larger;
+  padding: 0px 0px 10px 10px;
+}
+.qttInput{
+  width: 50px;
+  margin: 0 10px 0 0;
+  text-align: center;
+}
+.productInfo{
+  width: 270px;
+  margin: 0 15px 0 0;
+}
+.subtotalWrapper{
+  width: 65px;
+  margin: 0 15px 0 0;
+  text-align: right;
+}
+.subtotalWrapper 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.addButton{
+  margin: 0 0 0 45px;
+}
+.sendButton{
+  background-color: #13af05;
+  margin: 0 0 0 289px;
+}
+.deleteButton{
+  background-color: #af0505;
+}
+.subInput{
+  width: 100px
+}
+
+@media only screen and (max-width: 1280px){
+  .content{
+    width: 80%;
+    margin: 20px 0 0 10%;
+  }
+  .sendButton{
+    margin : 0 0 0 60%;
+  }
+  .addButton{
+    margin: 0 0 0 10%;
+  }
+  .productInfo{
+    margin: 0 10% 0 0;
+    width: 45%;
+  }
+  .qttInput{
+    width: 15%
+  }
+  .subtotalWrapper{
+    width: 10%;
+  }
+}
+
+@media only screen and (max-width: 476px){
+  .content{
+    width: 90%;
+    margin: 20px 0 0 5%;
+  }
+  .productInfo{
+    width: 36%;
+    margin: 0 10px 0 15px;
+  }
+  .qttInput{
+    width: 13%;
+  } 
+  .addButton{
+    margin: 0 0 0 10%;
+  }
+  .subtotalWrapper{
+    width: 15%;
+    margin: 0 10px 0 0;
+  }
+  .sendButton{
+    margin: 0 0 0 57%;
+  }
+  .deleteButton{
+    margin: 0 0 0 30px;
+  }
+}
+

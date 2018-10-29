@@ -1,0 +1,108 @@
+.headerContent {
+  background-color: aliceblue;
+  padding: 10px;
+  width: 80%;
+  margin: 40px 0 0 10%;
+  border-radius: 34px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  font-family: helvetica;
+  font-size: xx-large;
+}
+
+.hiddenMenu {
+  color: grey;
+  position: absolute;
+}
+
+.hiddenSubMenu {
+  margin-top: 5px;
+}
+
+.hiddenSubMenu button {
+  margin: 0 5px 0 5px;
+}
+
+.contentLeft {
+  width: 50%;
+  display: inline-block;
+  padding: 10px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.contentRight {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.orderTable {
+  border-radius: 10px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.empanadas {
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  width: 48%;
+}
+
+.titlePedidos {
+  font-size: 24px;
+  margin: 0;
+}
+
+.emptyOrder {
+  width: 60%;
+  margin: 15px 0 0 20%;
+  text-align: center;
+}
+
+.confirmar {
+  display: inline-block;
+  padding: 15px;
+  background: aliceblue;
+  text-align: center;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+@media only screen and (max-width: 476px) {
+  .body {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .contentLeft {
+    padding: 10px 0 0 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .empanadas {
+    width: 100%;
+  }
+  .contentRight {
+    width: 90%;
+    padding: 0;
+    margin-left: 5%;
+  }
+  .headerContent {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
+  .buttonHidden {
+    min-width: 10px !important;
+    padding: 1px 0 0 8px !important;
+  }
+  .confirmar {
+    margin: 10px 0 15px 19%;
+    box-shadow: 5px 5px 11px 1px darkgrey;
+  }
+}

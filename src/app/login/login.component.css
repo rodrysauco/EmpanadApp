@@ -1,0 +1,43 @@
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:60%;
+  margin: 25vh 0 0 20%;
+}
+.title{
+  text-align: center;
+}
+.action{
+  display: inline-block;
+  text-align: center;
+}
+.green{
+  background-color: #2ca03a;
+}
+.forgot{
+  display: inline-block;
+  margin: 0px 34px 0 15px;
+}
+.mailField{
+  margin-right: 10px;
+}
+
+@media only screen and (max-width : 400px){
+  .container{
+    display: block;
+    width: 80%;
+    margin: 20vh 0 0 10%;
+    text-align: center;
+  }
+  .nameField{
+    width: 90%;
+  }
+  .mailField{
+    width: 90%;
+    margin: 0;
+  }
+  .registerBtn{
+    padding: 10px;
+  }
+}

@@ -1,0 +1,67 @@
+.modal{
+  position: absolute;  
+  background-color: #00000047;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.pedidoCard{
+  margin: 25vh 0 0 35vw;
+  width: 425px;
+}
+.qttInput{
+  width: 50px;
+  margin: 0 10px 0 0;
+  text-align: center;
+}
+.productInfo{
+  width: 270px;
+  margin: 0 15px 0 0;
+}
+.subtotalWrapper{
+  width: 65px;
+  margin: 0 15px 0 0;
+  text-align: right;
+}
+.subtotalWrapper 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.deleteButton{
+  color: #af0505;
+  margin: 0 20px 0 20px;
+}
+.addLine{
+  color:#ff4081;
+  margin: 0px 15px 0 5px;
+}
+.send{
+  color:#13af05;
+  margin: 0 0 0 255px;
+}
+@media only screen and (max-width:1280px){
+  .pedidoCard{
+    margin: 30vh 0 0 22%;
+  }
+}
+@media only screen and (max-width:476px){
+  .pedidoCard{
+    margin: 50% 0 0 5%;
+    width: 80%;
+  }
+  .send{
+    margin: 0 0 0 115px;
+  }
+  .qttInput{
+    width: 45px;
+  }
+  .subtotalWrapper{
+    width: 51px;
+  }
+  .productInfo{
+    width: 156px;
+  }
+}

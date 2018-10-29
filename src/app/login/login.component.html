@@ -1,0 +1,37 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit) = "doLogin()">
+    <mat-card class="loginCard">
+      <mat-card-title>
+        <div class="title">
+          Login
+        </div>
+      </mat-card-title>
+      <mat-card-content>
+          <mat-form-field class="mailField">
+              <input matInput formControlName="mailForm" type="email" placeholder="Email">
+              <mat-error *ngIf="mailForm.hasError('email') && !mailForm.hasError('required')">
+                E-mail no valido
+              </mat-error>
+              <mat-error *ngIf="mailForm.hasError('required')">
+                E-mail vacio
+              </mat-error>
+            </mat-form-field>
+        <mat-form-field class="nameField">
+          <input matInput formControlName="password" type="password" placeholder="Contraseña">
+          <mat-error *ngIf="password.hasError('required')">
+            Contraseña vacia
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="forgot">
+          <a routerLink="/chgPwd">Olvido su contraseña?</a>
+        </div>
+        <div class="action registerBtn">
+          <button mat-flat-button type="button" (click)="register()">Registrar</button>
+          <button type="submit" class="green" [disabled]="!loginForm.valid" mat-raised-button>Ingresar</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

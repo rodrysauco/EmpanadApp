@@ -1,0 +1,37 @@
+<section class="modal">
+  <mat-card class="pedidoCard">
+    <form [formGroup]="pedidoForm" (ngSubmit)="sendEdited()">
+      <mat-card-title>
+        Editar pedido
+      </mat-card-title>
+      <mat-card-content>
+        <div formArrayName="lineaDePedido">
+          <div *ngFor="let pedido of empaForm.controls; let i = index" [formGroupName]="i">
+            <mat-form-field class="productInfo">
+              <mat-select formControlName="producto">
+                <mat-option *ngIf="!pedido.controls.touched" [value]="pedido.value.producto" selected>{{pedido.value.producto.name}}</mat-option>
+                <mat-optgroup *ngFor="let group of items" [label]="group.name">
+                  <mat-option [value]="producto" (click)="doSomething(i)" *ngFor="let producto of group.producto" y>
+                    {{producto.name}}</mat-option>
+                </mat-optgroup>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="qttInput">
+              <input matInput type="number" placeholder="Cantidad" (change)="doSomething(i)" formControlName="cantidad" min="1" max="12">
+            </mat-form-field>
+            <mat-form-field class="subtotalWrapper">
+              <input matInput type="number" [value]="getSubtotal(i)" [readonly]="true" class="subTotalInput"
+                placeholder="Subtotal">
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button matTooltip="Añadir empanada" type="button" class="addLine" (click)="addLine()"><i class="material-icons">add</i></button>
+        <button mat-icon-button matTooltip="Cancelar" type="button" (click)="cancelar()" class="deleteButton"><i class="material-icons">close</i></button>
+        <button mat-icon-button matTooltip="Enviar pedido" type="submit" [disabled]="!pedidoForm.touched" class="send"><i class="material-icons">send</i></button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

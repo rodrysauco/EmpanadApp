@@ -1,0 +1,59 @@
+.pedidos{
+  background-color: #d9ecf9;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 20px;
+}
+.pedidosList{
+  margin-bottom: 5px;
+}
+.title{
+  font-size: larger;
+  margin: 0;
+  padding: 0 0 5px 10px;
+}
+.panels{
+  border-radius: 15px;
+  background-color: #f2f9ff;
+  margin: 5px 0 5px 0;
+}
+.pedidosTable{
+  width: 100%;
+  background-color: #f2f9ff;
+}
+.empty{
+  padding: 20px;
+}
+.subTotal{
+  text-align: right;
+}
+.paddingRT{
+  text-align: right;
+}
+.positioning{
+  position: absolute;
+  margin: -5px 0px 0px 6px;
+}
+.trueRequested{
+  position: relative;
+  color: #68d9dd;
+}
+.edit{
+  text-align: right;
+  margin-top: 5px;
+}
+@media only screen and (max-width : 400px){
+  .pedidos{
+    padding: 20px 10px 10px 10px;
+  }
+  .mat-expansion-panel-body {
+    padding: 0px;
+  }
+  .paddingRT{
+    padding-right: 0 !important;
+  }
+  .paddingLT{
+    padding-left: 0 !important;
+  }
+  
+}
