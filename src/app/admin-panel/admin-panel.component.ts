@@ -56,6 +56,7 @@ export class AdminPanelComponent implements OnInit {
         user.isAdmin = row.admin;
         user.nombre = row.nombre;
         user.token = row.token;
+        user.availability = row.availability;
         this.users.push(user);
       }
     }

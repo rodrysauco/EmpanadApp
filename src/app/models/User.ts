@@ -1,12 +1,13 @@
 import { Pedido } from "./Pedido";
 
 export class User {
-  nombre : string;
-  pedidos : Pedido [];
-  isAdmin : boolean;
-  token : string;
+  nombre: string;
+  pedidos: Pedido[];
+  isAdmin: boolean;
+  availability: boolean;
+  token: string;
 
-  constructor (){
+  constructor() {
     this.pedidos = [];
   }
 }

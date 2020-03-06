@@ -12,6 +12,7 @@ import { ConnectionService } from '../Services/connection.service';
 export class NewPedidoComponent implements OnInit {
   @Input() items : Object[];
   @Output() pedido = new EventEmitter();
+  @Output() repeat = new EventEmitter();
   pedidoForm : FormGroup;
   total = 0;
 
@@ -70,6 +71,9 @@ export class NewPedidoComponent implements OnInit {
     }
   }
 
+  repeatLast(){
+    this.repeat.emit();
+  }
   get empaForm(){
     return this.pedidoForm.get('lineaDePedido') as FormArray
   }

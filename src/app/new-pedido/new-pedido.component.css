@@ -45,7 +45,10 @@ input::-webkit-outer-spin-button {
 .subInput{
   width: 100px
 }
-
+.repeat{
+  text-align: center;
+  margin-top: 15px;
+}
 @media only screen and (max-width: 1280px){
   .content{
     width: 80%;

@@ -14,10 +14,13 @@
     </section>
   </div>
   <div class="headerContent">
-    Caja comunal $40
+    Caja comunal $5
   </div>
   <div class="body">
-    <app-new-pedido (pedido)="makeThePedido($event)" [items]="items"></app-new-pedido>
+    <app-new-pedido 
+      (pedido)="makeThePedido($event)" 
+      (repeat)="repeatLast()"
+      [items]="items"></app-new-pedido>
     <div class="history">
       <app-pedidos-history [history]="usuario.pedidos" (edit)="edition($event)">
       </app-pedidos-history>

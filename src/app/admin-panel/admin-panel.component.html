@@ -17,10 +17,14 @@
     Seleccione al proximo admin
   </h3>
   <div class="userSelect" >
-    <button 
+    <ng-container 
+      *ngFor="let p of users"
+    >
+      <button 
       mat-raised-button 
       class="adminSelect"
-      *ngFor="let p of users" 
+      *ngIf="p.availability"
       (click)="makeAdmin(p.token)">{{p.nombre}}</button>
+    </ng-container>
   </div>
 </section>

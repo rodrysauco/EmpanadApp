@@ -36,7 +36,8 @@ export class RegisterComponent implements OnInit {
 
   doRegister(){
     this.conn.registerUser(this.name.value,this.mail.value,this.pass.value)
-      .then(data=>console.log(data),error=>this.handleError(error));
+      .then(data=>this.success())
+      .catch(error=>this.handleError(error));
   }
 
   handleError(error){
@@ -46,6 +47,12 @@ export class RegisterComponent implements OnInit {
       let e = JSON.parse(error.error);
       this.snack.open(e.message, "Cerrar");
     }
+  }
+  success(){
+    this.snack.open("Has sido registrado satisfactoriamente","",{
+      duration:2000
+    });
+    setTimeout(()=>this.goLogin(),2000);
   }
   goLogin(){
     this.router.navigate(['/login']);

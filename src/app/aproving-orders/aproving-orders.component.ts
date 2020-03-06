@@ -15,10 +15,13 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AprovingOrdersComponent implements OnInit {
   usuario: User;
+  aprrovingUser: boolean;
   users: User[] = [];
   orders = [];
   total = 0;
   showMenus: boolean = false;
+
+
 
   columnsToDisplay = ["Gusto", "Cantidad"];
 
@@ -38,10 +41,14 @@ export class AprovingOrdersComponent implements OnInit {
     if (webToken === null || webToken === "") {
       this.router.navigate(['/login']);
     } else {
+      this.checkApprover(webToken);
       this.conn.getUserInfo(webToken)
         .then((data) => this.displayUserInfo(data),
           (error) => this.handleError(error));
     }
+  }
+  checkApprover(token){
+    this.aprrovingUser = token === 'cm9kcmlnby5zYXVjb0BnbG9iYW50LmNvbQ';
   }
   displayUserInfo(data) {
     this.usuario = new User();

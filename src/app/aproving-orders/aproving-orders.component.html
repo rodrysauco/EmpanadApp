@@ -71,7 +71,7 @@
       <div class="confirmar">
         <p class="titleBody">Maria Alsina Tel: 486-4447</p>
         <p class="subtitleBody">Ha realizado el pedido?</p>
-        <button mat-flat-button (click)="submitedOrder()"> Si </button>
+        <button mat-flat-button (click)="submitedOrder()" *ngIf="aprrovingUser"> Si </button>
       </div>
     </div>
   </section>

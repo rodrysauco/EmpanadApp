@@ -17,6 +17,9 @@
   background-color: #f2f9ff;
   margin: 5px 0 5px 0;
 }
+.panel__header{
+  border-radius: 15px;
+}
 .pedidosTable{
   width: 100%;
   background-color: #f2f9ff;
